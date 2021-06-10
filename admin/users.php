@@ -87,31 +87,34 @@ else{
                     <th>Email</th>
                     <th>Adress</th>
                     <th>Phone No</th>
-                    
+                    <th>Actions</th>
                     
                 </tr>
                 <?php
                 
                     while($row=mysqli_fetch_assoc($query))
                     {
-                  echo"<tbody>";
-      echo"<td>"; echo $row['user_id']; echo"</td>";
-      echo"<td>"; echo $row['user_username']; echo"</td>";
-      echo"<td>"; echo $row['user_cnic']; echo"</td>";
-      echo"<td>"; echo $row['user_email']; echo"</td>";
-      echo"<td>"; echo $row['user_address']; echo"</td>";
-      echo"<td>"; echo $row['uphone_no']; echo"</td>";
-      
+                        ?>
+                  <tbody>
+      <td><?php echo $row['user_id'];?> </td>
+      <td><?php echo $row['user_username'];?></td>
+      <td><?php echo $row['user_cnic']; ?></td>
+      <td><?php echo $row['user_email'];?></td>
+     <td> <?php echo $row['user_address'];?> </td>
+      <td><?php echo $row['uphone_no'];?></td>
+      <td><a href="useredit.php?id=<?php echo $row['user_id'];?>" class="link">Edit</a> | <a href="userdelete.php?id=<?php echo $row['user_id'];?>" class="link">Delete</a>
+                    </td>
        
-      echo"</tbody>";
+      </tbody>
                         
-
+<?php
                     }
+                    ?>
 
 
                 
 
-            ?>
+           
             </table>
                 <br>
         </form>
