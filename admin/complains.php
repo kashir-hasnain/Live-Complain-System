@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+include('../includes/connection.php');
+
+$id = $_SESSION["admin_id"];
+
+
+if(! $id)
+{
+    header('location:admin.php');
+}
+else{
+
+}
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,13 +61,48 @@
 
 
     <div class="new-complain">
-        <form class="complainform">
-            <center>
-                <h3>All Complains registered by user</h3>
-            </center>
-            <br>
+       <form class="complainform">
+       <center> 
+            <h2>Complains</h2>
+</center>
+        <?php
+            
+    
+            $sql="SELECT * FROM complains";
+                        $query=mysqli_query($con,$sql);
+                        $count=mysqli_num_rows($query);
+                        ?>
+            <table style="width:100%">
+                <tr>
 
-            <p>Zero Complains.Here New complains are shown here</p>
+
+                    <th>Complain ID</th>
+                    <th>Complain Title</th>
+                    <th>Complain Matter</th>
+                    <th>Complain Progress</th>
+                    <th>Remarks</th>
+                </tr>
+                    <?php
+                    while($row=mysqli_fetch_assoc($query))
+                    {
+                  echo"<tbody>";
+      echo"<td>"; echo $row['complain_id']; echo"</td>";
+      echo"<td>"; echo $row['complain_title']; echo"</td>";
+      echo"<td>"; echo $row['complain_matter']; echo"</td>";
+      echo"<td>"; echo $row['progress_name']; echo"</td>";
+      echo"<td>"; echo $row['remarks']; echo"</td>";
+      echo"</tbody>";
+                        
+
+                    }
+
+
+                
+
+            ?>
+        </table>
+            <br>
+            <br>
 
         </form>
     </div>
