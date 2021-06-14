@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
     $ids=mysqli_fetch_assoc($sql);
     $print=$ids['user_id'];
     
-    $my="INSERT INTO complains VALUES('','$complain_title','$matter','Initiated','$print')";
+    $my="INSERT INTO complains VALUES('','$complain_title','$matter','Initiated','$print','')";
     $is_exe = mysqli_query($con,$my);
 
 

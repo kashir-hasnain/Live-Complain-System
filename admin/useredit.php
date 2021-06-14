@@ -1,11 +1,14 @@
 <?php
+session_start();
 include('../includes/connection.php');
 $id = $_GET['id'];
+ 
 
 $record=$con->query("SELECT * FROM users WHERE user_id='$id'");
 if($record->num_rows > 0){
 
 $q=$record->fetch_assoc();
+$id=$q['user_id'];
 $name=$q['user_username'];
 $email=$q['user_email'];
 $address=$q['user_address'];
@@ -15,27 +18,7 @@ $uphone=$q['uphone_no'];
 else{
     echo "Unable to Edit Record";
 }
-if(isset($_POST['update'])) // when click on Update button
-{
-    $name=$_POST['uname'];
-$email=$_POST['email'];
-$address=$_POST['address'];
-$cnic=$_POST['cnic'];
-$uphone=$_POST['phone_no'];
-	
-    $edit = mysqli_query($con,"UPDATE users set user_username='$name', user_email='$email',user_adress='$address',user_cnic='$cnic', uphone_no='$uphone' where user_id='$id'");
-	
-    if($edit)
-    {
-        // Close connection
-        header("location:users.php"); // redirects to all records page
-        exit;
-    }
-    else
-    {
-        echo mysqli_error();
-    }    	
-}
+
 
 ?>
 <!DOCTYPE html>
@@ -90,24 +73,25 @@ $uphone=$_POST['phone_no'];
 
 
     <div class="new-complain">
-        <form class="complainform">
+        <form class="complainform" method="POST" action="usereditaction.php">
             <center>
                 <h3>Profile</h3>
             </center>
             <br>
             <center>
                 
-            </center>
-            <input type="text" class="input" placeholder="" value="<?php echo $name ?>"    name="uname" required>
+            </center><input type="number" class="input" placeholder="" value="<?php echo $id ?>"    name="uid"  readonly>
+            <br>
+            <input type="text" class="input" placeholder="" value="<?php echo $name ?>"    name="uname" >
             <br>
             <input type="text" class="input"  name="email" required  value="<?php echo $email ?>">
             <br>
-            <input type="text" class="input" placeholder="" value="<?php echo $address ?>"    name="adress" required >
+            <input type="text" class="input" placeholder="" value="<?php echo $address ?>"    name="address"  >
             <br>
 
-            <input type="text" class="input" placeholder="" value="<?php echo $cnic ?>"     name="cnic" required >
+            <input type="text" class="input" placeholder="" value="<?php echo $cnic ?>"     name="cnic"  >
             <br>
-            <input type="text" class="input" placeholder="" value="<?php echo $uphone ?>"     name="phone_no" required >
+            <input type="text" class="input" placeholder="" value="<?php echo $uphone ?>"     name="phone_no"  >
             <br>
 
 
