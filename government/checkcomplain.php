@@ -67,38 +67,45 @@ if(!$_SESSION['gov_id'])
                         $query=mysqli_query($con,$sql);
                         $count=mysqli_num_rows($query);
                         ?>
-            <table style="width:100%">
+                        <table style="width:100%">
                 <tr>
 
 
-                    <th>Complain ID</th>
+                <th>Complain ID</th>
                     <th>Complain Title</th>
                     <th>Complain Matter</th>
                     <th>Complain Progress</th>
                     <th>Remarks</th>
+                    <th>Action</th>
+                    
                 </tr>
-                    <?php
+                <?php
+                
                     while($row=mysqli_fetch_assoc($query))
                     {
-                  echo"<tbody>";
-      echo"<td>"; echo $row['complain_id']; echo"</td>";
-      echo"<td>"; echo $row['complain_title']; echo"</td>";
-      echo"<td>"; echo $row['complain_matter']; echo"</td>";
-      echo"<td>"; echo $row['progress_name']; echo"</td>";
-      echo"<td>"; echo $row['remarks']; echo"</td>";
-      echo"</tbody>";
+                        ?>
+                  <tbody>
+      <td><?php echo $row['complain_id'];?> </td>
+      <td><?php echo $row['complain_title'];?></td>
+      <td><?php echo $row['complain_matter']; ?></td>
+      <td><?php echo $row['progress_name'];?></td>
+     <td> <?php echo $row['remarks'];?> </td>
+     
+      <td><a href="complainedit.php?id=<?php echo $row['complain_id'];?>" class="link">Edit</a> 
+                    </td>
+       
+      </tbody>
                         
-
+<?php
                     }
+                    ?>
 
 
                 
 
-            ?>
-        </table>
-            <br>
-            <br>
-
+           
+            </table>
+                <br>
         </form>
     </div>
     </div>
