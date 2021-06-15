@@ -75,14 +75,14 @@ else{
 
 
     <div class="new-complain">
-        <form class="complainform" method="POST" >
+        <form class="complainform" method="POST" action="complainaction.php">
             <center>
                 <h3>Modify Complain</h3>
             </center>
             <br>
             <center>
                 
-            </center><input type="number" class="input" placeholder="" value="<?php echo $id ?>"    name="complainid"  readonly>
+            </center><input type="number" class="input" placeholder="" value="<?php echo $id ?>"    name="complain_id"  readonly>
             <br>
             <input type="text" class="input" placeholder="" value="<?php echo $ctitle ?>"    name="complaintitle" readonly >
             <br>
