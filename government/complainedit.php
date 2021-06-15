@@ -75,7 +75,7 @@ else{
 
 
     <div class="new-complain">
-        <form class="complainform" method="POST">
+        <form class="complainform" method="POST" >
             <center>
                 <h3>Modify Complain</h3>
             </center>
@@ -89,15 +89,37 @@ else{
             <input type="text" class="input"  name="complainmatter" required  value="<?php echo $cmatter ?>" readonly>
             <br>
             
-            <p>Yha Progress wala drop down banana h</p>
-
+            
+            <center>
+            Progress:
+            <select name="progressinformtion">
+            
+            <?php
+            include('../includes/connection.php');
+            $sql=$con->query("SELECT progress_name FROM progess");
+            if($sql->num_rows > 0){
+                while($row = $sql-> fetch_assoc()){?>
+               
+                <option><?php echo $row["progress_name"];?></option>
+                <?php
+            }
+        }
+        else{
+            echo "No Record Found!";
+        }
+               
+            
+            ?> 
+            </select>
+</center>
+<br>
             <input type="text" class="input" placeholder="Remarks" value="<?php echo $cremarks ?>"     name="complainremarks"  >
             <br>
             
 
 
             <br>
-            <button class="btn" name="update" type="submit">Update Profile</button>
+            <button class="btn" name="update" type="submit">Modify Complain</button>
             <br>
 
             <br>
