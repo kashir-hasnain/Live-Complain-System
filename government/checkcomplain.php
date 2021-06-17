@@ -88,7 +88,7 @@ if(!$_SESSION['gov_id'])
       <td><?php echo $row['complain_id'];?> </td>
       <td><?php echo $row['complain_title'];?></td>
       <td><?php echo $row['complain_matter']; ?></td>
-      <td><?php echo $row['progress_name'];?></td>
+      <td><?php echo $row['progress_id'];?></td>
      <td> <?php echo $row['remarks'];?> </td>
      
       <td><a href="complainedit.php?id=<?php echo $row['complain_id'];?>" class="link">Edit</a> 

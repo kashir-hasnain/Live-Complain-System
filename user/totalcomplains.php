@@ -88,7 +88,7 @@ if(!$_SESSION['uname'])
       echo"<td>"; echo $row['complain_id']; echo"</td>";
       echo"<td>"; echo $row['complain_title']; echo"</td>";
       echo"<td>"; echo $row['complain_matter']; echo"</td>";
-      echo"<td>"; echo $row['progress_name']; echo"</td>";
+      echo"<td>"; echo $row['progress_id']; echo"</td>";
       echo"<td>"; echo $row['remarks']; echo"</td>";
       echo"</tbody>";
                         
