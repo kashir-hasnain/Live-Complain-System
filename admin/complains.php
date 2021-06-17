@@ -68,7 +68,7 @@ else{
         <?php
             
     
-            $sql="SELECT * FROM complains";
+            $sql="SELECT * FROM complains INNER JOIN progess on complains.progress_id=progess.progress_id";
                         $query=mysqli_query($con,$sql);
                         $count=mysqli_num_rows($query);
                         ?>
@@ -89,7 +89,7 @@ else{
       echo"<td>"; echo $row['complain_id']; echo"</td>";
       echo"<td>"; echo $row['complain_title']; echo"</td>";
       echo"<td>"; echo $row['complain_matter']; echo"</td>";
-      echo"<td>"; echo $row['progress_id']; echo"</td>";
+      echo"<td>"; echo $row['progress_name']; echo"</td>";
       echo"<td>"; echo $row['remarks']; echo"</td>";
       echo"</tbody>";
                         

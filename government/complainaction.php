@@ -7,10 +7,10 @@ if(isset($_POST['update'])) // when click on Update button
 {
     $id=$_POST['complain_id'];
 
-$cprogress=$_POST['progressinformation'];
+$cprogress=$_POST['progressinformtion'];
 $cremarks=$_POST['complainremarks'];
-	
-    $edit = mysqli_query($con,"UPDATE complains set progress_name= '$cprogress', remarks='$cremarks' where complain_id='$id'");
+	var_dump($_POST);
+    $edit = mysqli_query($con,"UPDATE complains set progress_id= '$cprogress', remarks='$cremarks' where complain_id='$id'");
 	
     if($edit)
     {

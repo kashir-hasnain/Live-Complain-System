@@ -81,8 +81,9 @@ if(!$_SESSION['uname'])
                     {
                         $name=$_POST['complain'];
     /*$q3="SELECT * FROM complains WHERE complain_id LIKE '%$name%'";*/
-    $q3="SELECT complains.remarks,complains.complain_id,users.user_email,complains.progress_id,users.user_id,complains.user_id,users.user_username FROM complains INNER JOIN users ON complains.user_id=users.user_id WHERE complains.complain_id LIKE '%$name%'";
+    $q3="SELECT progess.progress_name,complains.remarks,complains.complain_id,users.user_email,complains.progress_id,users.user_id,complains.user_id,users.user_username FROM complains INNER JOIN users ON complains.user_id=users.user_id INNER JOIN progess on progess.progress_id=complains.progress_id WHERE complains.complain_id LIKE '%$name%'";
     $final=mysqli_query($con,$q3);
+    
     $display=mysqli_num_rows($final);
     if($display==1)
     {
@@ -104,7 +105,7 @@ if(!$_SESSION['uname'])
       echo"<td>"; echo $r['complain_id']; echo"</td>";
       echo"<td>"; echo $r['user_username']; echo"</td>";
       echo"<td>"; echo $r['user_email']; echo"</td>";
-      echo"<td>"; echo $r['progress_id']; echo"</td>";
+      echo"<td>"; echo $r['progress_name']; echo"</td>";
       echo"<td>"; echo $r['remarks']; echo"</td>";
       echo"</tbody>";
 

@@ -64,8 +64,9 @@ if(!$_SESSION['uname'])
     $sql=mysqli_query($con,$fetch_id);
     $ids=mysqli_fetch_assoc($sql);
     $print=$ids['user_id'];
-    $sql="SELECT * FROM complains WHERE user_id='$print'";
+    $sql="SELECT * FROM complains  INNER JOIN progess on complains.progress_id=progess.progress_id WHERE user_id='$print'";
                 $query=mysqli_query($con,$sql);
+                
                 $count=mysqli_num_rows($query);
                 if($count>0)
                 {
@@ -84,11 +85,13 @@ if(!$_SESSION['uname'])
                     <?php
                     while($row=mysqli_fetch_assoc($query))
                     {
+                        
+                        
                   echo"<tbody>";
       echo"<td>"; echo $row['complain_id']; echo"</td>";
       echo"<td>"; echo $row['complain_title']; echo"</td>";
       echo"<td>"; echo $row['complain_matter']; echo"</td>";
-      echo"<td>"; echo $row['progress_id']; echo"</td>";
+      echo"<td>"; echo $row['progress_name']; echo"</td>";
       echo"<td>"; echo $row['remarks']; echo"</td>";
       echo"</tbody>";
                         

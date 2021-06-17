@@ -96,11 +96,11 @@ else{
             
             <?php
             include('../includes/connection.php');
-            $sql=$con->query("SELECT progress_name FROM progess");
+            $sql=$con->query("SELECT * FROM progess");
             if($sql->num_rows > 0){
                 while($row = $sql-> fetch_assoc()){?>
                
-                <option><?php echo $row["progress_name"];?></option>
+                <option value="<?php echo $row["progress_id"];?>"><?php echo $row["progress_name"];?></option>
                 <?php
             }
         }
