@@ -11,7 +11,7 @@ $q=$record->fetch_assoc();
 $id=$q['complain_id'];
 $ctitle=$q['complain_title'];
 $cmatter=$q['complain_matter'];
-$cprogress=$q['progress_name'];
+$cprogress=$q['progress_id'];
 $cremarks=$q['remarks'];
 
 }

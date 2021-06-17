@@ -5,6 +5,7 @@ if(!$_SESSION['uname'])
 {
     header('location:login.php');
 }
+
 include('../includes/connection.php');
 if(isset($_POST['submit'])){
     $complain_title=$_POST['complain_title'];
@@ -54,7 +55,8 @@ if(isset($_POST['submit'])){
 
 <body>
     <header class="header">
-        <a href="../index.php" class="logo">Welcome!</a>
+        <a href="../index.php" class="logo">Welcome!</a> 
+        
 
 
 
